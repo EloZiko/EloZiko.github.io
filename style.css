@@ -184,6 +184,9 @@ div.thumb {
 
 .pub__body { flex: 1; min-width: 0; }
 .pub__title { margin: 0; font-size: 17px; font-weight: 600; line-height: 1.4; }
+/* Titre cliquable : reste noir, devient bleu au survol */
+.pub__title a { color: var(--text); }
+.pub__title a:hover { color: var(--accent); text-decoration: none; }
 .pub__authors { margin: 5px 0 0; font-size: 14px; color: var(--gray); }
 .pub__authors b { color: var(--text); }   /* ton nom en gras */
 .pub__status { margin: 5px 0 0; font-size: 14px; font-style: italic; color: var(--gray); }
