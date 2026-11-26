@@ -1,0 +1,230 @@
+/* ============ Couleurs et réglages communs ============
+   Une "variable CSS" s'écrit --nom et se réutilise avec var(--nom).
+   Pour changer une couleur sur tout le site, on la change seulement ici. */
+:root {
+  --accent: #2b7de9;    /* bleu des liens et des soulignements */
+  --text: #202124;      /* texte principal */
+  --gray: #5f6368;      /* texte secondaire */
+  --light-gray: #9aa0a6;
+  --border: #e8eaed;    /* bordures fines */
+  --bg: #ffffff;        /* fond de la page */
+  --bg-alt: #f8f9fa;    /* fond gris très clair (pied de page, icônes) */
+}
+
+/* Les largeurs incluent bordures et marges intérieures (plus simple à calculer) */
+*, *::before, *::after { box-sizing: border-box; }
+
+/* Défilement doux quand on clique sur un lien du menu.
+   scroll-padding-top évite que le titre se cache sous la barre du haut. */
+html { scroll-behavior: smooth; scroll-padding-top: 64px; }
+
+body {
+  margin: 0;
+  font-family: "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--text);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Colonne centrale : tout le contenu tient dans 860px de large */
+.wrap { max-width: 860px; margin: 0 auto; padding: 0 24px; }
+
+/* ============ Barre du haut ============ */
+.topbar {
+  position: sticky; top: 0; z-index: 10;       /* reste collée en haut */
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(8px);                  /* floute ce qui passe dessous */
+  border-bottom: 1px solid var(--border);
+}
+.topbar .wrap {
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+}
+.brand {
+  font-size: 17px; font-weight: 700; color: var(--text);
+  padding: 14px 0; white-space: nowrap;
+}
+.brand:hover { color: var(--accent); text-decoration: none; }
+.topbar ul { display: flex; list-style: none; margin: 0; padding: 0; }
+.topbar ul a {
+  display: block; padding: 16px 11px 14px;
+  font-size: 14.5px; font-weight: 500; color: var(--text);
+}
+.topbar ul a:hover { color: var(--accent); text-decoration: none; }
+
+/* ============ En-tête (nom, chips, photo, bio) ============ */
+.hero { padding-top: 56px; }
+.hero__row {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 40px; flex-wrap: wrap;   /* la photo passe dessous si l'écran est étroit */
+}
+.hero__text { flex: 1 1 420px; min-width: 0; }
+.hero h1 { margin: 0 0 4px; font-size: 34px; font-weight: 700; letter-spacing: -0.5px; }
+.role { margin: 0 0 4px; color: var(--gray); font-weight: 500; }
+.meta { margin: 0; color: var(--light-gray); font-size: 14px; }
+.meta i { margin-right: 4px; }
+
+/* Les "chips" : boutons arrondis avec une icône */
+.chips { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
+.chip {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 9px 16px; font-size: 14px; font-weight: 500; color: var(--text);
+  border: 1px solid var(--border); border-radius: 9px; background: var(--bg);
+}
+.chip:hover { background: var(--bg-alt); text-decoration: none; }
+.chip i { color: var(--gray); }
+
+/* Photo ronde. Sans photo, on affiche les initiales au centre. */
+.avatar {
+  flex: 0 0 auto; width: 170px; height: 170px; border-radius: 50%;
+  overflow: hidden; background: linear-gradient(135deg, #dbe7fb, #eef3fd);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 48px; font-weight: 600; color: var(--accent);
+}
+.avatar img { width: 100%; height: 100%; object-fit: cover; }
+
+.bio { margin-top: 24px; color: #3c4043; }
+.bio p { margin: 0 0 12px; }
+
+/* ============ Sections ============ */
+section { padding: 44px 0 8px; }
+.section-title {
+  display: inline-block; margin: 0; font-size: 25px; font-weight: 700;
+  padding-bottom: 6px; border-bottom: 3px solid var(--accent);  /* le trait bleu */
+}
+.section-sub { margin: 10px 0 0; color: var(--gray); font-size: 15px; }
+.subsection { margin: 40px 0 0; font-size: 18px; font-weight: 600; }
+
+/* ============ Cartes (thèmes de recherche et projets) ============ */
+.card-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);  /* 3 colonnes égales */
+  gap: 16px; margin-top: 20px;
+}
+.card {
+  display: block; padding: 20px; color: var(--text);
+  border: 1px solid var(--border); border-radius: 14px; background: var(--bg);
+  transition: box-shadow 0.15s;
+}
+.card:hover { box-shadow: 0 3px 14px rgba(0, 0, 0, 0.07); text-decoration: none; }
+.card i {   /* petit carré gris avec l'icône bleue */
+  width: 36px; height: 36px; line-height: 36px; text-align: center;
+  font-size: 16px; border-radius: 9px; background: var(--bg-alt); color: var(--accent);
+}
+/* Vidéo ou image de démo en haut d'une carte, à la place de l'icône */
+.card__media {
+  display: block; width: 100%;
+  aspect-ratio: 16 / 9; object-fit: cover;   /* garde le format 16:9 sans déformer */
+  border-radius: 8px; border: 1px solid var(--border); background: var(--bg-alt);
+}
+.card h3 { margin: 12px 0 6px; font-size: 16px; font-weight: 600; }
+.card p { margin: 0; font-size: 14px; line-height: 1.55; color: var(--gray); }
+.card .tags { margin-top: 10px; font-size: 12.5px; color: var(--light-gray); }
+
+/* ============ Lignes "papier" : vignette à gauche, texte à droite ============ */
+.pub {
+  display: flex; gap: 22px; padding: 24px 0;
+  align-items: center;     /* vignette centrée en hauteur par rapport au texte */
+  border-bottom: 1px solid var(--border);
+}
+.pub:last-child { border-bottom: none; }
+/* Toutes les vignettes ont la même taille : 240 × 135 px (format 16:9) */
+.thumb {
+  flex: 0 0 240px; width: 240px; height: 135px;
+  border-radius: 8px; border: 1px solid var(--border); object-fit: cover;
+}
+/* Vignettes provisoires (dégradés de couleur avec un nom) en attendant tes images */
+div.thumb {
+  display: flex; align-items: center; justify-content: center;
+  font-size: 19px; font-weight: 700; letter-spacing: -0.3px;
+}
+/* Schéma cliquable : même cadre que les autres vignettes.
+   Le schéma est montré en entier (contain) avec une petite marge blanche. */
+.thumb--diagram {
+  display: block; position: relative;
+  overflow: hidden; background: #fff; cursor: zoom-in;
+  transition: box-shadow 0.15s;
+}
+.thumb--diagram img {
+  display: block; width: 100%; height: 100%;
+  object-fit: contain; padding: 6px;
+}
+/* Dessin qui doit remplir tout le cadre (ex. CDH) : rogné au lieu d'avoir des marges */
+.thumb--diagram img.fill { object-fit: cover; object-position: 50% 40%; padding: 0; }
+.thumb--diagram:hover { box-shadow: 0 3px 14px rgba(0, 0, 0, 0.12); }
+/* Petite icône "agrandir" en bas à droite, pour montrer qu'on peut cliquer */
+.zoom-hint {
+  position: absolute; right: 4px; bottom: 4px;
+  width: 18px; height: 18px; border-radius: 5px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 9px; color: #fff; background: rgba(32, 33, 36, 0.45);
+  opacity: 0.7; transition: opacity 0.15s;
+}
+.thumb--diagram:hover .zoom-hint { opacity: 1; }   /* bien visible au survol */
+
+/* Fenêtre d'agrandissement (ouverte par le script en bas de index.html) */
+#lightbox {
+  padding: 0; border: none; background: transparent; max-width: 96vw;
+  outline: none;   /* enlève le cadre bleu que le navigateur ajoute à la fenêtre ouverte */
+}
+#lightbox::backdrop { background: rgba(0, 0, 0, 0.75); }   /* fond sombre derrière */
+#lightbox img {
+  display: block; max-width: 94vw; max-height: 90vh;
+  padding: 12px; border-radius: 10px; background: #fff; cursor: zoom-out;
+}
+
+.thumb--blue   { background: linear-gradient(135deg, #dbe7fb, #f3f7fe); color: #1f5fbf; }
+.thumb--violet { background: linear-gradient(135deg, #e7defa, #f7f3fe); color: #6236b8; }
+.thumb--teal   { background: linear-gradient(135deg, #d4f0ec, #f1fbf9); color: #11766a; }
+.thumb--orange { background: linear-gradient(135deg, #fbe5cf, #fef6ee); color: #b35a00; }
+.thumb--rose   { background: linear-gradient(135deg, #f9dce3, #fef3f5); color: #b3264b; }
+
+.pub__body { flex: 1; min-width: 0; }
+.pub__title { margin: 0; font-size: 17px; font-weight: 600; line-height: 1.4; }
+.pub__authors { margin: 5px 0 0; font-size: 14px; color: var(--gray); }
+.pub__authors b { color: var(--text); }   /* ton nom en gras */
+.pub__status { margin: 5px 0 0; font-size: 14px; font-style: italic; color: var(--gray); }
+.pub__desc { margin: 8px 0 0; font-size: 14.5px; color: #3c4043; }
+.pub__links { margin: 8px 0 0; font-size: 14px; font-weight: 500; }
+.pub__links a { margin-right: 16px; }
+
+/* ============ Expérience et formation ============ */
+.rows { margin-top: 16px; }
+.row {
+  display: flex; gap: 16px; align-items: baseline;
+  padding: 12px 0; border-bottom: 1px solid var(--border); font-size: 15px;
+}
+.row:last-child { border-bottom: none; }
+.row .when { flex: 0 0 150px; color: var(--gray); font-size: 14px; }
+.row .what { flex: 1; }
+.row .where { color: var(--light-gray); font-size: 13.5px; white-space: nowrap; }
+
+/* ============ Pied de page ============ */
+footer {
+  margin-top: 56px; padding: 36px 24px 44px;
+  border-top: 1px solid var(--border); background: var(--bg-alt);
+}
+footer .chips { justify-content: center; margin: 0 0 18px; }
+.copyright { margin: 0; text-align: center; color: var(--light-gray); font-size: 13.5px; }
+
+/* ============ Écrans étroits (tablette, téléphone) ============ */
+@media (max-width: 760px) {
+  .card-grid { grid-template-columns: 1fr; }    /* une seule colonne */
+  .pub { flex-direction: column; gap: 14px; }   /* vignette au-dessus du texte */
+  .thumb { width: 100%; flex: none; height: auto; aspect-ratio: 16 / 9; }
+  .row { flex-wrap: wrap; gap: 2px 16px; }
+  .row .when { flex: 0 0 100%; }
+  .hero h1 { font-size: 28px; }
+  .avatar { width: 130px; height: 130px; font-size: 38px; }
+}
+@media (max-width: 520px) {
+  /* seulement gauche/droite : "padding: 0 16px" effacerait l'espace en haut de l'en-tête */
+  .wrap { padding-left: 16px; padding-right: 16px; }
+  .topbar .wrap { flex-direction: column; align-items: flex-start; gap: 0; }
+  .brand { padding: 10px 0 0; }
+  .topbar ul a { padding: 8px 10px 10px 0; font-size: 14px; }
+  html { scroll-padding-top: 96px; }
+}

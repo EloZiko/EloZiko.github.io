@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <!-- Pour que le site s'affiche bien sur téléphone -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zakaria El Ouahidi</title>
+  <!-- Texte affiché par Google sous le lien du site -->
+  <meta name="description" content="Student researcher at the Harvard AI & Robotics Lab. Spatial reasoning for VLMs, model merging, world models.">
+
+  <!-- Police Inter (Google Fonts) et icônes (Font Awesome), chargées depuis Internet -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ============ Barre du haut (reste collée en haut quand on défile) ============ -->
+  <nav class="topbar">
+    <div class="wrap">
+      <a class="brand" href="#top">Zakaria El Ouahidi</a>
+      <ul>
+        <li><a href="#research">Research</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="https://github.com/EloZiko/EloZiko/blob/main/CV.pdf">CV</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ============ En-tête : texte à gauche, photo à droite ============ -->
+  <header class="hero wrap" id="top">
+    <div class="hero__row">
+      <div class="hero__text">
+        <h1>Zakaria El Ouahidi</h1>
+        <p class="role">Student Researcher · Harvard AI &amp; Robotics Lab</p>
+        <p class="meta"><i class="fa-solid fa-location-dot"></i> Boston, USA</p>
+        <div class="chips">
+          <a class="chip" href="https://github.com/EloZiko/EloZiko/blob/main/CV.pdf"><i class="fa-regular fa-file-lines"></i> CV</a>
+          <a class="chip" href="https://github.com/EloZiko"><i class="fa-brands fa-github"></i> GitHub</a>
+          <!-- À FAIRE : remplace # par l'adresse exacte de ton profil LinkedIn -->
+          <a class="chip" href="#"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+          <a class="chip" href="mailto:zakaria.elouahidi@student-cs.fr"><i class="fa-regular fa-envelope"></i> Email</a>
+        </div>
+      </div>
+      <div class="avatar"><img src="images/photo.jpg" alt="Zakaria El Ouahidi"></div>
+    </div>
+
+    <div class="bio">
+      <p>
+        I am an MEng student in Computer Science at CentraleSupélec (Paris-Saclay University),
+        currently a student researcher at the <b>Harvard AI &amp; Robotics Lab</b>, advised by Prof. Wang.
+      </p>
+      <p>
+        I work on <b>spatial reasoning for vision-language models</b>, <b>model merging</b>,
+        <b>world models</b> and <b>flow matching</b>. Before Harvard, I rebuilt the AWS DeepRacer
+        simulator at PUC-Rio, and built a prenatal prediction model with AP-HP.
+      </p>
+      <p>I am looking for a research internship starting in <b>April 2027</b>.</p>
+    </div>
+  </header>
+
+  <main class="wrap">
+
+    <!-- ============ Recherche ============ -->
+    <section id="research">
+      <h2 class="section-title">Research</h2>
+      <p class="section-sub">The questions I work on.</p>
+
+      <!-- Trois cartes "thèmes de recherche" -->
+      <div class="card-grid">
+        <div class="card">
+          <i class="fa-solid fa-cube"></i>
+          <h3>Spatial reasoning in VLMs</h3>
+          <p>How vision-language models understand 3D space, and how to improve it without retraining them.</p>
+        </div>
+        <div class="card">
+          <i class="fa-solid fa-wand-magic-sparkles"></i>
+          <h3>Diffusion models</h3>
+          <p>Diffusion and flow-matching generative models.</p>
+        </div>
+        <div class="card">
+          <i class="fa-solid fa-globe"></i>
+          <h3>World models</h3>
+          <p>Flow matching applied to world models, and using world models as a tool.</p>
+        </div>
+      </div>
+
+      <h3 class="subsection">Papers &amp; ongoing work</h3>
+
+      <!-- Un travail de recherche = un bloc <article class="pub">.
+           Pour une photo à gauche : <img class="thumb" src="images/photo.jpg" alt="...">
+           Pour un schéma cliquable : copie le bloc <a class="thumb thumb--diagram zoom"> de MASAR.
+           Pour ajouter des liens, ajoute sous la description :
+           <p class="pub__links"><a href="...">arXiv</a> <a href="...">Code</a></p> -->
+
+      <article class="pub">
+        <!-- Schéma cliquable : un clic l'ouvre en grand (voir le script en bas de la page) -->
+        <a class="thumb thumb--diagram zoom" href="images/masar.png">
+          <img src="images/masar.png" alt="Overview of MASAR">
+          <span class="zoom-hint"><i class="fa-solid fa-expand"></i></span>
+        </a>
+        <div class="pub__body">
+          <h4 class="pub__title">Let Expert Confidence Guide LoRA Merging: Margin-Aware Spectral Adaptation</h4>
+          <p class="pub__authors">Alexandre Molohio, Gabriel Azpitarte, <b>Zakaria El Ouahidi</b>, Weiyue Li, Yan Luo, Mengyu Wang</p>
+          <p class="pub__status">Harvard AI &amp; Robotics Lab · 2026</p>
+          <p class="pub__desc">
+            Sets how much to flatten each LoRA expert from its prediction margin on one unlabeled example.
+            Beats the best label-free baseline by over 7 accuracy points on CLIP ViT-B/32.
+          </p>
+        </div>
+      </article>
+
+      <article class="pub">
+        <a class="thumb thumb--diagram zoom" href="images/latentparse.png">
+          <img src="images/latentparse.png" alt="Overview of LatentParse">
+          <span class="zoom-hint"><i class="fa-solid fa-expand"></i></span>
+        </a>
+        <div class="pub__body">
+          <h4 class="pub__title">LatentParse: reading visual latents for spatial reasoning in VLMs</h4>
+          <p class="pub__status">Harvard AI &amp; Robotics Lab · 2026</p>
+          <p class="pub__desc">
+            Tests whether VLMs can interpret their own visual encoder latents, with a training-free
+            agentic loop that turns those latents into spatial evidence.
+          </p>
+        </div>
+      </article>
+
+      <!-- SE(3) masqué pour l'instant. Pour le remettre : supprime cette ligne et la ligne "FIN SE(3)".
+      <article class="pub">
+        <div class="thumb thumb--teal">SE(3)</div>
+        <div class="pub__body">
+          <h4 class="pub__title">Camera-motion operators for 3D spatial reasoning in VLMs</h4>
+          <p class="pub__status">Harvard AI &amp; Robotics Lab · in progress</p>
+          <p class="pub__desc">
+            SE(3) operators that act directly on the hidden states of VLMs, to improve 3D spatial
+            reasoning without rendering new views.
+          </p>
+        </div>
+      </article>
+      FIN SE(3) -->
+
+      <article class="pub">
+        <img class="thumb" src="images/deepracer.jpg" alt="A DeepRacer car on a real track">
+        <div class="pub__body">
+          <h4 class="pub__title">An open platform for AWS DeepRacer</h4>
+          <p class="pub__status">PUC-Rio · paper in preparation, with Eduardo Luna and Prof. Alberto Sardinha</p>
+          <p class="pub__desc">
+            Rebuilt the AWS DeepRacer simulator as an open platform after the service shut down,
+            added TRPO next to PPO, and benchmarked both on 30 tracks.
+          </p>
+        </div>
+      </article>
+
+      <article class="pub">
+        <!-- Dessin original (pas une image médicale réelle) -->
+        <a class="thumb thumb--diagram zoom" href="images/cdh.svg">
+          <img class="fill" src="images/cdh.svg" alt="Diagram of a left congenital diaphragmatic hernia">
+          <span class="zoom-hint"><i class="fa-solid fa-expand"></i></span>
+        </a>
+        <div class="pub__body">
+          <h4 class="pub__title">Predicting oxygen dependency in newborns with a congenital diaphragmatic hernia</h4>
+          <p class="pub__status">AP-HP &amp; Kremlin-Bicêtre hospital · co-first author, paper in writing</p>
+          <p class="pub__desc">
+            Predicts before birth whether a baby will need oxygen at day 28, from 4 routine prenatal markers.
+            Validated on an independent cohort of 98 fetuses from Leuven: external AUC 0.827.
+          </p>
+        </div>
+      </article>
+    </section>
+
+    <!-- ============ Projets ============ -->
+    <section id="projects">
+      <h2 class="section-title">Projects</h2>
+      <p class="section-sub">Personal, school and open-source projects.</p>
+
+      <div class="card-grid">
+        <div class="card">
+          <video class="card__media" src="images/quiz-demo.mp4" autoplay muted loop playsinline
+                 aria-label="Demo of the quiz generator"></video>
+          <h3>MCQ generator for Cleaverlearn</h3>
+          <p>LLM pipeline that turns educational content into multiple-choice quizzes, for a start-up.</p>
+          <p class="tags">OpenAI GPT · sentence-transformers · Pydantic</p>
+        </div>
+        <div class="card">
+          <!-- Vidéo qui se comporte comme un GIF :
+               autoplay = démarre seule, muted = sans son (obligatoire pour démarrer seule),
+               loop = en boucle, playsinline = reste dans la page sur iPhone (pas en plein écran) -->
+          <video class="card__media" src="images/2048-demo.mp4" autoplay muted loop playsinline
+                 aria-label="Demo of the game"></video>
+          <h3>Terraria × Minecraft × 2048</h3>
+          <p>Mine numbered tiles in a procedurally generated 2D world, then play 2048 with them.</p>
+          <p class="tags">Pygame · MVC · custom physics</p>
+        </div>
+        <a class="card" href="https://github.com/EloZiko/Interface_BCI">
+          <i class="fa-solid fa-brain"></i>
+          <h3>Brain–computer interface</h3>
+          <p>Real-time decoding of motor imagery from an EEG headset, with a Tkinter interface.</p>
+          <p class="tags">Python · EEG · Lab-STICC (CNRS)</p>
+        </a>
+        <div class="card">
+          <i class="fa-solid fa-trophy"></i>
+          <h3>Hackathon: from LLMs to agentic AI</h3>
+          <p>Top 3 out of 20 teams. Partners: Mistral, AWS, NVIDIA.</p>
+          <p class="tags">LLM agents</p>
+        </div>
+        <a class="card" href="https://www.cheerup-cs.fr/">
+          <i class="fa-solid fa-heart"></i>
+          <h3>Cheer Up! website</h3>
+          <p>Website of a student association that visits children with cancer at Gustave Roussy Hospital.</p>
+          <p class="tags">HTML · CSS · JavaScript</p>
+        </a>
+      </div>
+    </section>
+
+    <!-- ============ Expérience et formation ============ -->
+    <section id="experience">
+      <h2 class="section-title">Experience</h2>
+
+      <!-- Une ligne = <div class="row">, avec la date à gauche et le reste à droite -->
+      <div class="rows">
+        <div class="row">
+          <span class="when">Sept 2026 – now</span>
+          <span class="what"><b>Student Researcher</b>, Harvard AI &amp; Robotics Lab</span>
+          <span class="where">Boston, USA</span>
+        </div>
+        <div class="row">
+          <span class="when">Sept 2025 – now</span>
+          <span class="what"><b>Student Researcher</b>, AP-HP</span>
+          <span class="where">Paris, France</span>
+        </div>
+        <div class="row">
+          <span class="when">Mar – Sept 2026</span>
+          <span class="what"><b>Student Researcher</b>, PUC-Rio</span>
+          <span class="where">Rio de Janeiro, Brazil</span>
+        </div>
+        <div class="row">
+          <span class="when">Apr 2025 – Feb 2026</span>
+          <span class="what"><b>Teaching Assistant</b>, Mathematics, CentraleSupélec</span>
+          <span class="where">Paris-Saclay, France</span>
+        </div>
+        <div class="row">
+          <span class="when">May – Jul 2023</span>
+          <span class="what"><b>Research Intern</b>, Lab-STICC (CNRS)</span>
+          <span class="where">Brest, France</span>
+        </div>
+      </div>
+
+      <h3 class="subsection">Education</h3>
+      <div class="rows">
+        <div class="row">
+          <span class="when">2024 – 2028</span>
+          <span class="what"><b>MEng in Computer Science</b>, CentraleSupélec, Paris-Saclay University</span>
+          <span class="where">France</span>
+        </div>
+        <div class="row">
+          <span class="when">2021 – 2024</span>
+          <span class="what"><b>Bachelor's in Mathematics</b>, Université de Bretagne Occidentale · ranked 3/236</span>
+          <span class="where">Brest, France</span>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============ Pied de page ============ -->
+  <footer>
+    <div class="chips">
+      <a class="chip" href="https://github.com/EloZiko"><i class="fa-brands fa-github"></i> GitHub</a>
+      <a class="chip" href="#"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+      <a class="chip" href="mailto:zakaria.elouahidi@student-cs.fr"><i class="fa-regular fa-envelope"></i> Email</a>
+    </div>
+    <p class="copyright">© 2026 Zakaria El Ouahidi</p>
+  </footer>
+
+  <!-- ============ Agrandissement des schémas ============
+       <dialog> est une fenêtre native du navigateur, cachée au départ. -->
+  <dialog id="lightbox"><img alt=""></dialog>
+  <script>
+    const box = document.getElementById('lightbox');
+    const big = box.querySelector('img');
+    // Clic sur un schéma : on met son image dans la fenêtre et on l'ouvre.
+    document.querySelectorAll('a.zoom').forEach(link => {
+      link.addEventListener('click', event => {
+        event.preventDefault();          // empêche d'ouvrir l'image dans un nouvel onglet
+        big.src = link.getAttribute('href');
+        big.alt = link.querySelector('img').alt;
+        box.showModal();                 // affiche la fenêtre par-dessus la page
+      });
+    });
+    // Clic n'importe où : on referme. (La touche Échap referme aussi, sans code en plus.)
+    box.addEventListener('click', () => box.close());
+  </script>
+
+</body>
+</html>
